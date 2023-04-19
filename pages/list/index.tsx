@@ -1,17 +1,17 @@
 import type {NextPage} from 'next'
 
 const List: NextPage = () => {
-  let name = 'zzong'
-  let link = 'http://google.com'
+  let products = ['Product1', 'Product2', 'product3']
   return (
     <div>
       <h4 className={'title'}>상품목록</h4>
-      <div className="food">
-        <h4>상품1 $50</h4>
-      </div>
-      <div className="food">
-        <h4>상품2 $60</h4>
-      </div>
+      {products.map((name, index) =>
+        <div className="food" key={index}>
+          {/*<Image src={product_image} width={200} height={200} alt="product"/>*/}
+          <img src={`/product_${index}.png`} width={200} alt="product"/>
+          <h4>{name} $50</h4>
+        </div>)
+      }
     </div>
   )
 }
